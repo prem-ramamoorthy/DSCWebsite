@@ -234,26 +234,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.├── l
 - **React TSParticles** - Particle animation library
 - **jQuery** - For specific interactive components
 
-## Migration from Next.js
-
-This project was migrated from Next.js to React.js. Key changes include:
-
-- Next.js routing → React Router v6
-- `next/image` → standard `<img>` tags with lazy loading
-- `next/link` → `react-router-dom` Link
-- `next/head` → `react-helmet-async`
-- Environment variables: `NEXT_PUBLIC_*` → `REACT_APP_*`
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-© 2025 Hackathon and Coding Club, BIT Sindri. All rights reserved.
-
-## Contact
-
-- Email: hnccbits@gmail.com
-- Website: [https://hnccbits.com](https://hnccbits.com)
-- Blog: [https://blog.hnccbits.com](https://blog.hnccbits.com)
