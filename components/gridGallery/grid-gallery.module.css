@@ -23,7 +23,7 @@
 
 .wrapper .imgBoxWrapper {
   @apply w-full h-full relative opacity-0;
-  @apply sm:!opacity-100;
+  @apply sm: !opacity-100;
 }
 
 @media screen(sm) {

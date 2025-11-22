@@ -14,13 +14,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@splinetool/react-spline": "^4.1.0",
     "emailjs-com": "^3.2.0",
     "jquery": "^3.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.0",
     "react-helmet-async": "^2.0.4",
     "react-icons": "^4.3.1",
+    "react-router-dom": "^6.20.0",
     "react-tsparticles": "2.12.2",
     "tsparticles": "2.0.6",
     "web-vitals": "^3.5.0"
