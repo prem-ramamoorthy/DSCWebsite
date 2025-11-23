@@ -153,9 +153,6 @@ function PumpkinTransition({ onComplete }) {
         allTriggers.forEach((trigger) => {
           try {
             if (trigger.vars && trigger.vars.trigger === container) {
-              if (trigger.pin) {
-                trigger.pin = null;
-              }
               trigger.kill();
             }
           } catch (triggerError) {
