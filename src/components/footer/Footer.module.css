@@ -1,6 +1,6 @@
 .footer {
-  @apply relative h-screen pt-24 pb-8;
-  @apply sm:h-auto sm:pt-16;
+  @apply relative h-auto pt-24 pb-8;
+  @apply sm:pt-16;
 }
 
 .linksContainer {
