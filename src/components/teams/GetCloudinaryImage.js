@@ -1,5 +1,3 @@
-// TODO: Move CLOUD_NAME to environment variable for better security and configurability
-// Usage: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME
 export const CLOUD_NAME = 'dwpdekzdb';
 
 export const getCloudinaryImage = (publicId, options = {}) => {
@@ -10,7 +8,7 @@ export const getCloudinaryImage = (publicId, options = {}) => {
     format = 'auto',
     crop = 'fill',
     gravity = 'face',
-    effects = [],
+    effects = []
   } = options;
 
   const transformations = [
@@ -20,7 +18,7 @@ export const getCloudinaryImage = (publicId, options = {}) => {
     `g_${gravity}`,
     `q_${quality}`,
     `f_${format}`,
-    ...effects,
+    ...effects
   ].join(',');
   return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${transformations}/${publicId}`;
 };
