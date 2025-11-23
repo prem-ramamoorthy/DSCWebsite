@@ -9,8 +9,8 @@ function UpcomingEvents() {
     seconds: 0,
   });
 
-  // Example event date - Replace with your actual event date
-  const eventDate = new Date('2025-10-31T18:00:00').getTime();
+  // Event date: November 29, 2025 at 8:00 AM
+  const eventDate = new Date('2025-11-29T08:00:00').getTime();
 
   useEffect(() => {
     const timer = setInterval(() => {
