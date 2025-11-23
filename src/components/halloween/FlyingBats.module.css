@@ -1,0 +1,157 @@
+.batsContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.bat {
+  position: absolute;
+  left: var(--start-x);
+  top: var(--start-y);
+  transform: scale(var(--size, 1));
+  animation-duration: var(--duration);
+  animation-delay: var(--delay);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+}
+
+.bat.path1 {
+  animation-name: flyPath1;
+}
+
+.bat.path2 {
+  animation-name: flyPath2;
+}
+
+.batBody {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.batHead {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #1a1a1a;
+  border-radius: 50% 50% 40% 40%;
+  z-index: 2;
+}
+
+.batHead::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 3px;
+  height: 3px;
+  background: #ff4444;
+  border-radius: 50%;
+  box-shadow: 5px 0 0 #ff4444;
+}
+
+.batHead::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 2px;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 5px solid #1a1a1a;
+}
+
+.batWing {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 15px;
+  background: #2a2a2a;
+  transform-origin: center;
+  animation: flapWings 0.3s ease-in-out infinite alternate;
+}
+
+.batWing[data-wing="left"] {
+  left: -18px;
+  border-radius: 50% 10% 10% 50%;
+  clip-path: polygon(0% 20%, 30% 0%, 100% 40%, 100% 100%, 50% 80%, 0% 100%);
+  animation-delay: 0s;
+}
+
+.batWing[data-wing="right"] {
+  right: -18px;
+  border-radius: 10% 50% 50% 10%;
+  clip-path: polygon(0% 40%, 70% 0%, 100% 20%, 100% 100%, 50% 80%, 0% 100%);
+  animation-delay: 0.15s;
+}
+
+/* Wing flapping animation */
+@keyframes flapWings {
+  0% {
+    transform: translateY(-50%) rotateX(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotateX(25deg);
+  }
+}
+
+/* Flying paths */
+@keyframes flyPath1 {
+  0% {
+    left: -5%;
+    top: var(--start-y);
+    transform: scale(var(--size, 1)) rotate(-10deg);
+  }
+  25% {
+    top: calc(var(--start-y) - 15vh);
+    transform: scale(var(--size, 1)) rotate(5deg);
+  }
+  50% {
+    top: calc(var(--start-y) - 5vh);
+    transform: scale(var(--size, 1)) rotate(-5deg);
+  }
+  75% {
+    top: calc(var(--start-y) - 20vh);
+    transform: scale(var(--size, 1)) rotate(8deg);
+  }
+  100% {
+    left: 105%;
+    top: calc(var(--start-y) - 10vh);
+    transform: scale(var(--size, 1)) rotate(-10deg);
+  }
+}
+
+@keyframes flyPath2 {
+  0% {
+    left: 105%;
+    top: var(--start-y);
+    transform: scale(var(--size, 1)) rotate(10deg) scaleX(-1);
+  }
+  25% {
+    top: calc(var(--start-y) + 10vh);
+    transform: scale(var(--size, 1)) rotate(-5deg) scaleX(-1);
+  }
+  50% {
+    top: calc(var(--start-y) + 5vh);
+    transform: scale(var(--size, 1)) rotate(5deg) scaleX(-1);
+  }
+  75% {
+    top: calc(var(--start-y) + 15vh);
+    transform: scale(var(--size, 1)) rotate(-8deg) scaleX(-1);
+  }
+  100% {
+    left: -5%;
+    top: calc(var(--start-y) + 8vh);
+    transform: scale(var(--size, 1)) rotate(10deg) scaleX(-1);
+  }
+}

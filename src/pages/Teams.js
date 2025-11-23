@@ -5,11 +5,13 @@ import Screen from '../components/screen/Screen';
 import TeamCard from '../components/teams/TeamCard';
 import Styles from '../components/teams/Team.module.css';
 import { TeamData2k20, TeamData2k21, TeamData2k22 } from '../lib/data/TeamData';
+import HalloweenBackground from '../components/halloween/HalloweenBackground';
 
 function Teams() {
   return (
-    <Screen>
-      <Helmet>
+    <HalloweenBackground>
+      <Screen>
+        <Helmet>
         <title>Our Amazing Team ✨</title>
         <meta
           name="description"
@@ -109,6 +111,7 @@ function Teams() {
         </div>
       </section>
     </Screen>
+    </HalloweenBackground>
   );
 }
 

@@ -1,0 +1,361 @@
+.eventsSection {
+  position: relative;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.9) 0%, rgba(20, 10, 30, 0.95) 100%);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Decorative bats */
+.batDecor {
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  font-size: 2rem;
+  animation: batFloat 4s ease-in-out infinite;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+@keyframes batFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff8c00;
+  text-shadow: 
+    0 0 20px rgba(255, 140, 0, 0.8),
+    0 0 40px rgba(255, 100, 0, 0.5);
+  margin-bottom: 20px;
+  animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+.titleIcon {
+  display: inline-block;
+  animation: iconBounce 1s ease-in-out infinite;
+  margin: 0 15px;
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 
+      0 0 20px rgba(255, 140, 0, 0.8),
+      0 0 40px rgba(255, 100, 0, 0.5);
+  }
+  100% {
+    text-shadow: 
+      0 0 30px rgba(255, 140, 0, 1),
+      0 0 60px rgba(255, 100, 0, 0.8);
+  }
+}
+
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  font-style: italic;
+}
+
+/* Countdown Section */
+.countdownSection {
+  background: linear-gradient(135deg, rgba(50, 20, 60, 0.5) 0%, rgba(30, 10, 40, 0.5) 100%);
+  border: 2px solid rgba(255, 140, 0, 0.3);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 60px;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(255, 140, 0, 0.1);
+}
+
+.countdownTitle {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #ff8c00;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.countdownItem {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 140, 0, 0.4);
+  box-shadow: 0 5px 20px rgba(255, 140, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.countdownItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(255, 140, 0, 0.4);
+}
+
+.countdownValue {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff8c00;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.8);
+  line-height: 1;
+}
+
+.countdownLabel {
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.countdownDivider {
+  font-size: 2.5rem;
+  color: #ff8c00;
+  font-weight: bold;
+}
+
+/* Events Grid */
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.eventCard {
+  background: linear-gradient(135deg, rgba(40, 20, 50, 0.8) 0%, rgba(20, 10, 30, 0.8) 100%);
+  border: 2px solid rgba(255, 140, 0, 0.3);
+  border-radius: 20px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: cardFadeIn 0.6s ease-out forwards;
+  opacity: 0;
+  backdrop-filter: blur(10px);
+}
+
+@keyframes cardFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.eventCard::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff8c00, #ff6600, #cc5500, #ff8c00);
+  border-radius: 20px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.eventCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 20px 60px rgba(255, 140, 0, 0.4),
+    0 0 40px rgba(255, 140, 0, 0.2);
+  border-color: rgba(255, 140, 0, 0.8);
+}
+
+.eventCard:hover::before {
+  opacity: 0.3;
+}
+
+.eventCategory {
+  display: inline-block;
+  background: rgba(255, 140, 0, 0.2);
+  color: #ff8c00;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 140, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.eventTitle {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.eventDetails {
+  margin-bottom: 20px;
+}
+
+.eventDetail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.eventIcon {
+  font-size: 1.2rem;
+}
+
+.eventDescription {
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+.registerBtn {
+  width: 100%;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.registerBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.5);
+}
+
+.registerBtn:active {
+  transform: scale(0.98);
+}
+
+.btnGlow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.registerBtn:hover .btnGlow {
+  left: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .countdownSection {
+    padding: 30px 20px;
+  }
+  
+  .countdownValue {
+    font-size: 2rem;
+  }
+  
+  .countdownItem {
+    padding: 15px 20px;
+  }
+  
+  .eventsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .eventCard {
+    padding: 25px;
+  }
+  
+  .eventTitle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .eventsSection {
+    padding: 60px 15px;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .titleIcon {
+    margin: 0 8px;
+  }
+  
+  .countdownValue {
+    font-size: 1.8rem;
+  }
+  
+  .countdownLabel {
+    font-size: 0.75rem;
+  }
+  
+  .countdownDivider {
+    font-size: 1.8rem;
+  }
+}

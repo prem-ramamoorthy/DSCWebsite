@@ -6,6 +6,7 @@ import BottomGlitter from '../components/StyledText/BottomGlitter';
 import styles from '../styles/events.module.css';
 import AnimatedScrollButton from '../components/AnimatedScrollButton';
 import EventsData from '../lib/data/EventsData';
+import HalloweenBackground from '../components/halloween/HalloweenBackground';
 
 function Events() {
   useEffect(() => {
@@ -62,8 +63,9 @@ function Events() {
   }, []);
 
   return (
-    <Screen>
-      <Helmet>
+    <HalloweenBackground>
+      <Screen>
+        <Helmet>
         <title>Our Events - Data Science Club</title>
         <meta
           name="description"
@@ -100,6 +102,7 @@ function Events() {
         </div>
       </div>
     </Screen>
+    </HalloweenBackground>
   );
 }
 

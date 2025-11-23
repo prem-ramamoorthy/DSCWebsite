@@ -3,10 +3,12 @@ import { Helmet } from 'react-helmet-async';
 import Events from '../components/event/Events';
 import Screen from '../components/screen/Screen';
 import BottomGlitter from '../components/StyledText/BottomGlitter';
+import HalloweenBackground from '../components/halloween/HalloweenBackground';
 
 function About() {
   return (
-    <Screen>
+    <HalloweenBackground>
+      <Screen>
       <Helmet>
         <title>About Us - Data Science Club</title>
         <meta
@@ -141,6 +143,7 @@ function About() {
         <Events />
       </section>
     </Screen>
+    </HalloweenBackground>
   );
 }
 

@@ -9,10 +9,13 @@ import Screen from '../components/screen/Screen';
 import Sponsors from '../components/sponsors/Sponsors';
 import TechStack from '../components/techStack/TechStack';
 import Video from '../components/video/Video';
+import HalloweenBackground from '../components/halloween/HalloweenBackground';
+import UpcomingEvents from '../components/UpcomingEvents/UpcomingEvents';
+import PumpkinTransition from '../components/halloween/PumpkinTransition';
 
 export default function Home() {
   return (
-    <Screen>
+    <>
       <Helmet>
         <title>Data Science Club - VIT Bhopal</title>
         <meta
@@ -24,13 +27,23 @@ export default function Home() {
           content="Data Science, Machine Learning, AI, Deep Learning, Python, Data Analytics, Data Science Club, VIT Bhopal"
         />
       </Helmet>
-      <Notice />
-      <Video />
-      <HomeAbout />
-      <TechStack />
-      <GridGallery />
-      <Sponsors />
-      <Associations />
-    </Screen>
+      
+      {/* Cinematic pumpkin entrance */}
+      <PumpkinTransition />
+      
+      {/* Main content */}
+      <HalloweenBackground>
+        <Screen>
+          <Notice />
+          <Video />
+          <UpcomingEvents />
+          <HomeAbout />
+          <TechStack />
+          <GridGallery />
+          <Sponsors />
+          <Associations />
+        </Screen>
+      </HalloweenBackground>
+    </>
   );
 }
