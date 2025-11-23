@@ -5,15 +5,16 @@ function FlyingBats({ count = 5 }) {
   const [bats, setBats] = useState([]);
 
   useEffect(() => {
-    // Generate random bat configurations
+    // Generate random bat configurations with varied paths
+    const paths = ['path1', 'path2', 'path3', 'path4'];
     const generatedBats = Array.from({ length: count }, (_, index) => ({
       id: `bat-${index}-${Math.random()}`,
       startX: Math.random() * 100,
       startY: Math.random() * 80 + 10,
-      duration: Math.random() * 15 + 10, // 10-25 seconds
-      delay: Math.random() * 5,
-      size: Math.random() * 0.5 + 0.6, // 0.6-1.1x size
-      path: Math.random() > 0.5 ? 'path1' : 'path2',
+      duration: Math.random() * 10 + 8, // 8-18 seconds for faster movement
+      delay: Math.random() * 6,
+      size: Math.random() * 0.4 + 0.5, // 0.5-0.9x size
+      path: paths[Math.floor(Math.random() * paths.length)],
     }));
     setBats(generatedBats);
   }, [count]);
