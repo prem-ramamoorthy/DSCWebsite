@@ -46,7 +46,7 @@ const GalleryImages = [
     mobileSrc: 'gallery/mobile/event8.jpg',
     title: 'Flames 2.0',
     id: 'pic2',
-  }
+  },
 ];
 
 export default GalleryImages;

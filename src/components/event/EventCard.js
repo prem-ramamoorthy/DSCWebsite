@@ -45,7 +45,9 @@ function EventCard({ title, description, link, bgImage = '' }) {
           aria-label={`View full poster for ${title}`}
         >
           <div className={Styles.posterOverlay}>
-            <span className={Styles.posterClickHint}>Click to view full poster</span>
+            <span className={Styles.posterClickHint}>
+              Click to view full poster
+            </span>
           </div>
         </div>
         <div className={Styles.cardBody}>
@@ -66,22 +68,29 @@ function EventCard({ title, description, link, bgImage = '' }) {
       {isLightboxOpen &&
         (document.getElementById('overlay')
           ? createPortal(
-            <EventLightbox
-              title={title}
-              description={description}
-              bgImage={bgImage}
-              link={link}
-              onClose={closeLightbox}
-              onBackdropClick={handleBackdropClick}
-            />,
-            document.getElementById('overlay')
-          )
+              <EventLightbox
+                title={title}
+                description={description}
+                bgImage={bgImage}
+                link={link}
+                onClose={closeLightbox}
+                onBackdropClick={handleBackdropClick}
+              />,
+              document.getElementById('overlay')
+            )
           : null)}
     </>
   );
 }
 
-function EventLightbox({ title, description, bgImage, link, onClose, onBackdropClick }) {
+function EventLightbox({
+  title,
+  description,
+  bgImage,
+  link,
+  onClose,
+  onBackdropClick,
+}) {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {

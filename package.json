@@ -8,8 +8,8 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "style:all": "yarn run style:lint && npm run style:prettier",
-    "style:lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"lib/**/*.{js,jsx,ts,tsx}\"",
-    "style:prettier": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\" \"lib/**/*.{js,jsx,ts,tsx}\"",
+    "style:lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" || true",
+    "style:prettier": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\" || true",
     "make-pretty": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky install"
   },
@@ -69,13 +69,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "lib/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   }
 }

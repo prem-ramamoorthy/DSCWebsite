@@ -28,8 +28,9 @@ function Sidebar({ isMounted, unmount }) {
         created due to no scrollbar by giving the document an extra right padding according to the extra created space
       */
       if (documentWidthRef.current !== document.documentElement.clientWidth) {
-        document.documentElement.style.paddingRight = `${document.documentElement.clientWidth - documentWidthRef.current
-          }px`;
+        document.documentElement.style.paddingRight = `${
+          document.documentElement.clientWidth - documentWidthRef.current
+        }px`;
       }
     } else if (!isMounted && isTransitioning) {
       timeoutId = setTimeout(() => {
@@ -55,8 +56,9 @@ function Sidebar({ isMounted, unmount }) {
 
   return createPortal(
     <section
-      className={`${isTransitioning && isMounted ? styles.active : ''} ${styles.navbarWrapper
-        }`.trim()}
+      className={`${isTransitioning && isMounted ? styles.active : ''} ${
+        styles.navbarWrapper
+      }`.trim()}
     >
       <div className={styles.navbar}>
         <div>
@@ -136,8 +138,8 @@ function Sidebar({ isMounted, unmount }) {
           <Button
             style={{ border: 'none' }}
             className="bg-primary-light text-primary hover:text-primary-light xs:!py-3"
-          /* For Christmas theme */
-          // className="bg-primary-light text-primary xs:!py-3"
+            /* For Christmas theme */
+            // className="bg-primary-light text-primary xs:!py-3"
           >
             <span style={SpanStyle}>Join Us</span>
           </Button>
