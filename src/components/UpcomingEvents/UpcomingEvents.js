@@ -35,39 +35,6 @@ function UpcomingEvents() {
     return () => clearInterval(timer);
   }, [eventDate]);
 
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: '🎃 Halloween Hackathon',
-      date: 'Oct 31, 2025',
-      time: '6:00 PM - 11:59 PM',
-      description:
-        'Join us for a spooky coding challenge! Build the most haunting ML models and win exciting prizes.',
-      location: 'VIT Bhopal Campus',
-      category: 'Hackathon',
-    },
-    {
-      id: 2,
-      title: '👻 AI Workshop: Spooky Predictions',
-      date: 'Nov 5, 2025',
-      time: '4:00 PM - 6:00 PM',
-      description:
-        'Learn to build predictive models with a Halloween twist. Predict haunted house patterns!',
-      location: 'Tech Lab 3',
-      category: 'Workshop',
-    },
-    {
-      id: 3,
-      title: '🦇 Data Visualization Night',
-      date: 'Nov 12, 2025',
-      time: '5:00 PM - 7:00 PM',
-      description:
-        'Create eerie and engaging data visualizations. Dark mode plots encouraged!',
-      location: 'Seminar Hall',
-      category: 'Workshop',
-    },
-  ];
-
   return (
     <section className={styles.eventsSection}>
       <div className={styles.container}>
@@ -118,37 +85,31 @@ function UpcomingEvents() {
           </div>
         </div>
 
-        {/* Events Cards */}
-        <div className={styles.eventsGrid}>
-          {upcomingEvents.map((event, index) => (
-            <div
-              key={event.id}
-              className={styles.eventCard}
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <div className={styles.eventCategory}>{event.category}</div>
-              <h3 className={styles.eventTitle}>{event.title}</h3>
-              <div className={styles.eventDetails}>
-                <div className={styles.eventDetail}>
-                  <span className={styles.eventIcon}>📅</span>
-                  <span>{event.date}</span>
-                </div>
-                <div className={styles.eventDetail}>
-                  <span className={styles.eventIcon}>⏰</span>
-                  <span>{event.time}</span>
-                </div>
-                <div className={styles.eventDetail}>
-                  <span className={styles.eventIcon}>📍</span>
-                  <span>{event.location}</span>
-                </div>
+        {/* Event Poster */}
+        <div className={styles.posterSection}>
+          <div className={styles.posterContainer}>
+            <img
+              src="/poster-1_page-0001.jpg"
+              alt="Upcoming Event Poster"
+              className={styles.eventPoster}
+            />
+            <div className={styles.posterOverlay}>
+              <div className={styles.posterContent}>
+                <h3 className={styles.posterTitle}>
+                  🎃 Join Our Spooktacular Event! 👻
+                </h3>
+                <p className={styles.posterText}>
+                  Don&apos;t miss out on the most thrilling event of the season!
+                  Limited seats available - Register now before it&apos;s too
+                  late!
+                </p>
+                <button className={styles.registerBtn} type="button">
+                  🎫 Register Now - Secure Your Spot!
+                  <span className={styles.btnGlow} />
+                </button>
               </div>
-              <p className={styles.eventDescription}>{event.description}</p>
-              <button className={styles.registerBtn} type="button">
-                Register Now
-                <span className={styles.btnGlow} />
-              </button>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

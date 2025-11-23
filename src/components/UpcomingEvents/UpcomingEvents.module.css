@@ -152,122 +152,111 @@
   font-weight: bold;
 }
 
-/* Events Grid */
-.eventsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+/* Poster Section */
+.posterSection {
   margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  animation: posterFadeIn 0.8s ease-out forwards;
 }
 
-.eventCard {
-  background: linear-gradient(
-    135deg,
-    rgba(40, 20, 50, 0.8) 0%,
-    rgba(20, 10, 30, 0.8) 100%
-  );
-  border: 2px solid rgba(255, 140, 0, 0.3);
-  border-radius: 20px;
-  padding: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  animation: cardFadeIn 0.6s ease-out forwards;
-  opacity: 0;
-  backdrop-filter: blur(10px);
-}
-
-@keyframes cardFadeIn {
+@keyframes posterFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
 }
 
-.eventCard::before {
-  content: '';
+.posterContainer {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(255, 140, 0, 0.3),
+    0 0 100px rgba(255, 140, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 3px solid rgba(255, 140, 0, 0.4);
+}
+
+.posterContainer:hover {
+  transform: scale(1.02);
+  box-shadow: 0 30px 80px rgba(255, 140, 0, 0.5),
+    0 0 120px rgba(255, 140, 0, 0.3);
+  border-color: rgba(255, 140, 0, 0.7);
+}
+
+.eventPoster {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.posterContainer:hover .eventPoster {
+  transform: scale(1.05);
+}
+
+.posterOverlay {
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #ff8c00, #ff6600, #cc5500, #ff8c00);
-  border-radius: 20px;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.3s ease;
-  background-size: 400% 400%;
-  animation: gradientShift 3s ease infinite;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.85) 50%,
+    transparent 100%
+  );
+  padding: 40px 30px 30px;
+  transform: translateY(0);
+  transition: transform 0.4s ease, background 0.4s ease;
 }
 
-@keyframes gradientShift {
+.posterContainer:hover .posterOverlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.98) 0%,
+    rgba(0, 0, 0, 0.9) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.posterContent {
+  text-align: center;
+}
+
+.posterTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff8c00;
+  text-shadow: 0 0 20px rgba(255, 140, 0, 0.8), 0 0 40px rgba(255, 100, 0, 0.6);
+  margin-bottom: 15px;
+  animation: posterTitlePulse 2s ease-in-out infinite;
+}
+
+@keyframes posterTitlePulse {
   0%,
   100% {
-    background-position: 0% 50%;
+    text-shadow: 0 0 20px rgba(255, 140, 0, 0.8),
+      0 0 40px rgba(255, 100, 0, 0.6);
   }
   50% {
-    background-position: 100% 50%;
+    text-shadow: 0 0 30px rgba(255, 140, 0, 1), 0 0 60px rgba(255, 100, 0, 0.8);
   }
 }
 
-.eventCard:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(255, 140, 0, 0.4),
-    0 0 40px rgba(255, 140, 0, 0.2);
-  border-color: rgba(255, 140, 0, 0.8);
-}
-
-.eventCard:hover::before {
-  opacity: 0.3;
-}
-
-.eventCategory {
-  display: inline-block;
-  background: rgba(255, 140, 0, 0.2);
-  color: #ff8c00;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  border: 1px solid rgba(255, 140, 0, 0.4);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.eventTitle {
-  font-size: 1.6rem;
+.posterText {
+  font-size: 1.1rem;
   color: #fff;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.eventDetails {
-  margin-bottom: 20px;
-}
-
-.eventDetail {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-  color: #ccc;
-  font-size: 0.95rem;
-}
-
-.eventIcon {
-  font-size: 1.2rem;
-}
-
-.eventDescription {
-  color: #aaa;
-  line-height: 1.6;
   margin-bottom: 25px;
-  font-size: 0.95rem;
+  line-height: 1.6;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  font-weight: 500;
 }
 
 .registerBtn {
@@ -342,17 +331,25 @@
     font-size: 2rem;
   }
 
-  .eventsGrid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .posterContainer {
+    border-radius: 20px;
   }
 
-  .eventCard {
-    padding: 25px;
+  .posterOverlay {
+    padding: 30px 20px 20px;
   }
 
-  .eventTitle {
-    font-size: 1.3rem;
+  .posterTitle {
+    font-size: 1.5rem;
+  }
+
+  .posterText {
+    font-size: 1rem;
+  }
+
+  .registerBtn {
+    font-size: 0.9rem;
+    padding: 12px 25px;
   }
 }
 
@@ -398,5 +395,28 @@
   .countdownDivider {
     font-size: 1.5rem;
     display: none;
+  }
+
+  .posterContainer {
+    border-radius: 15px;
+  }
+
+  .posterOverlay {
+    padding: 25px 15px 15px;
+  }
+
+  .posterTitle {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .posterText {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .registerBtn {
+    font-size: 0.85rem;
+    padding: 12px 20px;
   }
 }
