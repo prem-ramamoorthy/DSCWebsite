@@ -25,6 +25,18 @@ function HalloweenBackground({ children }) {
     },
   ];
 
+  // Random spider web positions - scattered across the page
+  const spiderWebPositions = [
+    { id: 'web-1', top: '10vh', left: '5%' },
+    { id: 'web-2', top: '8vh', right: '7%' },
+    { id: 'web-3', top: '45vh', left: '15%' },
+    { id: 'web-4', top: '70vh', right: '12%' },
+    { id: 'web-5', top: '120vh', left: '8%' },
+    { id: 'web-6', top: '150vh', right: '10%' },
+    { id: 'web-7', top: '200vh', left: '20%' },
+    { id: 'web-8', top: '180vh', right: '15%' },
+  ];
+
   return (
     <div className={styles.halloweenWrapper}>
       {/* Atmospheric background layers */}
@@ -34,12 +46,27 @@ function HalloweenBackground({ children }) {
         <div className={styles.vignette} />
       </div>
 
-      {/* Spider webs in corners - only top */}
-      <SpiderWeb position="top-left" />
-      <SpiderWeb position="top-right" />
+      {/* Spider webs scattered randomly */}
+      {spiderWebPositions.map((web, index) => (
+        <div
+          key={web.id}
+          style={{
+            position: 'absolute',
+            top: web.top,
+            left: web.left,
+            right: web.right,
+            pointerEvents: 'none',
+            zIndex: 1,
+            '--random-rotation': `${(index * 45) % 360}deg`,
+            '--random-scale': 0.6 + (index % 3) * 0.2,
+          }}
+        >
+          <SpiderWeb position="custom" />
+        </div>
+      ))}
 
       {/* Flying bats (ambient) */}
-      <FlyingBats count={8} />
+      <FlyingBats count={12} />
 
       {/* Interactive pumpkins */}
       <div className={styles.pumpkinsLayer}>
