@@ -29,21 +29,21 @@ function HomeAbout() {
       {/* Halloween Decorations - Enhanced Pumpkin beside text */}
       <div className="absolute inset-0 pointer-events-none z-0">
         {/* Large Pumpkin beside "Design Develop Code" text area - Left side */}
-        <div className="absolute left-[-80px] top-[15%] w-64 md:w-48 sm:w-32 lg:left-[-100px] xl:left-[-120px]">
+        <div className="absolute left-[-140px] top-[15%] w-64 md:w-48 sm:hidden lg:left-[-160px] xl:left-[-180px]">
           <div className="animate-pulse" style={{ animationDuration: '3s' }}>
-            <span className="text-[180px] md:text-[140px] sm:text-[100px] drop-shadow-[0_0_30px_rgba(255,140,0,0.6)] opacity-70 block">
+            <span className="text-[180px] md:text-[140px] drop-shadow-[0_0_30px_rgba(255,140,0,0.6)] opacity-70 block">
               🎃
             </span>
           </div>
         </div>
 
         {/* Right side - Floating elements in free space */}
-        <div className="absolute right-[-60px] top-[40%] w-48 md:w-36 sm:w-24 lg:right-[-80px] xl:right-[-100px]">
+        <div className="absolute right-[-120px] top-[40%] w-48 md:w-36 sm:hidden lg:right-[-140px] xl:right-[-160px]">
           <div
             className="animate-pulse"
             style={{ animationDuration: '4s', animationDelay: '1s' }}
           >
-            <span className="text-[140px] md:text-[110px] sm:text-[80px] drop-shadow-[0_0_25px_rgba(255,165,0,0.5)] opacity-60 block">
+            <span className="text-[140px] md:text-[110px] drop-shadow-[0_0_25px_rgba(255,165,0,0.5)] opacity-60 block">
               🎃
             </span>
           </div>
