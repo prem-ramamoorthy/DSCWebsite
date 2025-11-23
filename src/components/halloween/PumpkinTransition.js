@@ -40,14 +40,14 @@ function PumpkinTransition({ onComplete }) {
       const delta = e.deltaY || e.detail || e.wheelDelta;
 
       if (delta > 0) {
-        // Scrolling down - progress animation
+        // Scrolling down - progress animation (slower: 0.008 instead of 0.02)
         setScrollProgress((prev) => {
-          const newProgress = Math.min(prev + 0.02, 1);
+          const newProgress = Math.min(prev + 0.008, 1);
           if (newProgress >= 1 && !animationComplete) {
             animationComplete = true;
             setTimeout(() => {
               if (onComplete) onComplete();
-            }, 500);
+            }, 800);
           }
           return newProgress;
         });
@@ -169,55 +169,74 @@ function PumpkinTransition({ onComplete }) {
       return;
     }
 
-    // Manually animate based on scroll progress
+    // Manually animate based on scroll progress with smooth easing
     const progress = scrollProgress;
+    const easeOutQuad = (t) => t * (2 - t); // Smooth easing function
 
     if (progress < 0.3) {
-      // Phase 1: Fade in and grow
-      const phase1Progress = progress / 0.3;
-      gsap.set(pumpkin, {
+      // Phase 1: Fade in and grow (slower, smoother)
+      const phase1Progress = easeOutQuad(progress / 0.3);
+      gsap.to(pumpkin, {
         scale: 0.3 + phase1Progress * 0.7,
         opacity: phase1Progress,
         filter: `brightness(${0.5 + phase1Progress * 0.5})`,
+        duration: 0.3,
+        ease: 'power2.out',
       });
-      gsap.set(fire, {
+      gsap.to(fire, {
         scale: 0.8 + phase1Progress * 0.4,
         opacity: phase1Progress,
+        duration: 0.3,
+        ease: 'power2.out',
       });
     } else if (progress < 0.6) {
-      // Phase 2: Grow larger
-      const phase2Progress = (progress - 0.3) / 0.3;
-      gsap.set(pumpkin, {
+      // Phase 2: Grow larger (smoother)
+      const phase2Progress = easeOutQuad((progress - 0.3) / 0.3);
+      gsap.to(pumpkin, {
         scale: 1 + phase2Progress * 1.5,
         opacity: 1,
         filter: 'brightness(1)',
+        duration: 0.4,
+        ease: 'power2.inOut',
       });
-      gsap.set(fire, {
+      gsap.to(fire, {
         scale: 1.2 + phase2Progress * 1.6,
         opacity: 1,
+        duration: 0.4,
+        ease: 'power2.inOut',
       });
-      gsap.set(mouth, {
+      gsap.to(mouth, {
         opacity: phase2Progress,
         filter: `brightness(${1 + phase2Progress})`,
+        duration: 0.3,
+        ease: 'power2.out',
       });
     } else {
-      // Phase 3: Zoom and blackout
-      const phase3Progress = (progress - 0.6) / 0.4;
-      gsap.set(pumpkin, {
+      // Phase 3: Zoom and blackout (smoother)
+      const phase3Progress = easeOutQuad((progress - 0.6) / 0.4);
+      gsap.to(pumpkin, {
         scale: 2.5 + phase3Progress * 2.5,
         opacity: 1,
         filter: 'brightness(1)',
+        duration: 0.5,
+        ease: 'power2.in',
       });
-      gsap.set(fire, {
+      gsap.to(fire, {
         scale: 2.8 + phase3Progress * 2,
         opacity: 1,
+        duration: 0.5,
+        ease: 'power2.in',
       });
-      gsap.set(mouth, {
+      gsap.to(mouth, {
         opacity: 1,
         filter: 'brightness(2)',
+        duration: 0.3,
+        ease: 'power2.out',
       });
-      gsap.set(blackout, {
+      gsap.to(blackout, {
         opacity: phase3Progress,
+        duration: 0.4,
+        ease: 'power2.inOut',
       });
     }
   }, [scrollProgress]);
@@ -225,6 +244,44 @@ function PumpkinTransition({ onComplete }) {
   return (
     <div ref={containerRef} className={styles.transitionContainer}>
       <div className={styles.darkBackground}>
+        {/* Flying bats around the scene */}
+        <div
+          className={styles.bat}
+          style={{ '--delay': '0s', '--duration': '8s' }}
+        >
+          🦇
+        </div>
+        <div
+          className={styles.bat}
+          style={{ '--delay': '2s', '--duration': '10s' }}
+        >
+          🦇
+        </div>
+        <div
+          className={styles.bat}
+          style={{ '--delay': '4s', '--duration': '9s' }}
+        >
+          🦇
+        </div>
+        <div
+          className={styles.bat}
+          style={{ '--delay': '1s', '--duration': '11s' }}
+        >
+          🦇
+        </div>
+        <div
+          className={styles.bat}
+          style={{ '--delay': '3s', '--duration': '7s' }}
+        >
+          🦇
+        </div>
+        <div
+          className={styles.bat}
+          style={{ '--delay': '5s', '--duration': '9.5s' }}
+        >
+          🦇
+        </div>
+
         <div ref={pumpkinRef} className={styles.pumpkin}>
           {/* Burning fire effect on top */}
           <div ref={fireRef} className={styles.fireContainer}>
