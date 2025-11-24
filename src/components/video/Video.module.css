@@ -12,6 +12,9 @@
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
   }
 }
 
@@ -73,13 +76,18 @@
   left: 50%;
   z-index: 55;
   @apply md:justify-center md:w-full;
-  @apply sm:static sm:transform-none sm:my-10 sm:px-3 sm:justify-start;
+}
+
+/* Hide content completely on mobile to prevent text bleeding */
+@media (max-width: 599px) {
+  .content {
+    display: none !important;
+  }
 }
 
 .content > h1 {
   @apply my-8 mx-4 text-7xl z-30 font-extrabold relative;
   @apply md:text-5xl;
-  @apply sm:my-4;
 }
 
 .content > h1::before,
@@ -141,7 +149,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 1;
+  z-index: 10;
   background: #000;
 }
 
