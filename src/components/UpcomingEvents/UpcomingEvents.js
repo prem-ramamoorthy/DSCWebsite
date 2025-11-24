@@ -93,27 +93,25 @@ function UpcomingEvents() {
               alt="Upcoming Event Poster"
               className={styles.eventPoster}
             />
-            <div className={styles.posterOverlay}>
-              <div className={styles.posterContent}>
-                <h3 className={styles.posterTitle}>
-                  🎃 Join Our Spooktacular Event! 👻
-                </h3>
-                <p className={styles.posterText}>
-                  Don&apos;t miss out on the most thrilling event of the season!
-                  Limited seats available - Register now before it&apos;s too
-                  late!
-                </p>
-                <a
-                  href="https://forms.gle/rZSC14JJMcFysGJa6"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.registerBtn}
-                >
-                  🎫 Register Now - Secure Your Spot!
-                  <span className={styles.btnGlow} />
-                </a>
-              </div>
-            </div>
+          </div>
+          {/* Call to Action Below Poster */}
+          <div className={styles.ctaSection}>
+            <h3 className={styles.ctaTitle}>
+              🎃 Join Our Spooktacular Event! 👻
+            </h3>
+            <p className={styles.ctaText}>
+              Don&apos;t miss out on the most thrilling event of the season!
+              Limited seats available - Register now before it&apos;s too late!
+            </p>
+            <a
+              href="https://forms.gle/rZSC14JJMcFysGJa6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.registerBtn}
+            >
+              🎫 Register Now - Secure Your Spot!
+              <span className={styles.btnGlow} />
+            </a>
           </div>
         </div>
       </div>

@@ -156,7 +156,9 @@
 .posterSection {
   margin-top: 40px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
   animation: posterFadeIn 0.8s ease-out forwards;
 }
 
@@ -201,36 +203,24 @@
   transform: scale(1.05);
 }
 
-.posterOverlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.85) 50%,
-    transparent 100%
-  );
-  padding: 40px 30px 30px;
-  transform: translateY(0);
-  transition: transform 0.4s ease, background 0.4s ease;
-}
-
-.posterContainer:hover .posterOverlay {
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.98) 0%,
-    rgba(0, 0, 0, 0.9) 50%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
-}
-
-.posterContent {
+/* Call to Action Section Below Poster */
+.ctaSection {
+  max-width: 900px;
+  width: 100%;
   text-align: center;
+  background: linear-gradient(
+    135deg,
+    rgba(50, 20, 60, 0.5) 0%,
+    rgba(30, 10, 40, 0.5) 100%
+  );
+  border: 2px solid rgba(255, 140, 0, 0.3);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(255, 140, 0, 0.1);
 }
 
-.posterTitle {
+.ctaTitle {
   font-size: 2rem;
   font-weight: bold;
   color: #ff8c00;
@@ -250,7 +240,7 @@
   }
 }
 
-.posterText {
+.ctaText {
   font-size: 1.1rem;
   color: #fff;
   margin-bottom: 25px;
@@ -334,19 +324,23 @@
     font-size: 2rem;
   }
 
+  .posterSection {
+    gap: 30px;
+  }
+
   .posterContainer {
     border-radius: 20px;
   }
 
-  .posterOverlay {
-    padding: 30px 20px 20px;
+  .ctaSection {
+    padding: 30px 20px;
   }
 
-  .posterTitle {
+  .ctaTitle {
     font-size: 1.5rem;
   }
 
-  .posterText {
+  .ctaText {
     font-size: 1rem;
   }
 
@@ -400,20 +394,24 @@
     display: none;
   }
 
+  .posterSection {
+    gap: 20px;
+  }
+
   .posterContainer {
     border-radius: 15px;
   }
 
-  .posterOverlay {
-    padding: 25px 15px 15px;
+  .ctaSection {
+    padding: 25px 15px;
   }
 
-  .posterTitle {
+  .ctaTitle {
     font-size: 1.2rem;
     margin-bottom: 10px;
   }
 
-  .posterText {
+  .ctaText {
     font-size: 0.9rem;
     margin-bottom: 20px;
   }
