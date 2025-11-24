@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&family=Cinzel:wght@400;500;600;700;800;900&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Eater&family=Creepster&family=Nosifer&family=Butcherman&family=Cinzel:wght@400;500;600;700;800;900&family=Special+Elite&display=swap');
 
 /* ./styles/globals.css */
 @tailwind base;
@@ -23,8 +23,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Creepster', cursive;
-  letter-spacing: 0.05em;
+  font-family: 'Eater', cursive;
+  letter-spacing: 0.08em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
