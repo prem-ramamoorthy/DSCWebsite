@@ -93,9 +93,15 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 500vh;
+  height: 300vh;
   pointer-events: none;
   z-index: 1;
+}
+
+/* Extended height for home page only */
+.homePage .pumpkinsLayer,
+.homePage .candlesLayer {
+  height: 500vh;
 }
 
 .pumpkinsLayer {

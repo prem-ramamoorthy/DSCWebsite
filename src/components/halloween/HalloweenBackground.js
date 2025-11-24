@@ -116,7 +116,11 @@ function HalloweenBackground({ children, isHomePage = false }) {
     : baseSpiderWebPositions;
 
   return (
-    <div className={styles.halloweenWrapper}>
+    <div
+      className={`${styles.halloweenWrapper} ${
+        isHomePage ? styles.homePage : ''
+      }`}
+    >
       {/* Atmospheric background layers */}
       <div className={styles.atmosphericLayer}>
         <div className={styles.fogLayer} />
@@ -147,6 +151,7 @@ function HalloweenBackground({ children, isHomePage = false }) {
       <FlyingBats
         count={isHomePage ? 32 : 24}
         maxHeight={isHomePage ? 450 : 280}
+        isHomePage={isHomePage}
       />
 
       {/* Interactive pumpkins */}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './FlyingBats.module.css';
 
-function FlyingBats({ count = 5, maxHeight = 280 }) {
+function FlyingBats({ count = 5, maxHeight = 280, isHomePage = false }) {
   const [bats, setBats] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,9 @@ function FlyingBats({ count = 5, maxHeight = 280 }) {
   }, [count, maxHeight]);
 
   return (
-    <div className={styles.batsContainer}>
+    <div
+      className={`${styles.batsContainer} ${isHomePage ? styles.homePage : ''}`}
+    >
       {bats.map((bat) => (
         <div
           key={bat.id}
