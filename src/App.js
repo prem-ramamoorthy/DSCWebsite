@@ -2,6 +2,8 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 // eslint-disable-next-line import/no-unresolved
 import { Analytics } from '@vercel/analytics/react';
+// eslint-disable-next-line import/no-unresolved
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Home from './pages/Home';
 import About from './pages/About';
 import Teams from './pages/Teams';
@@ -27,6 +29,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
