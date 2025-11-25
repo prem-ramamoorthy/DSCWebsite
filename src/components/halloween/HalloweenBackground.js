@@ -165,11 +165,7 @@ function HalloweenBackground({ children, isHomePage = false }) {
         ))}
 
       {/* Flying bats (ambient) - drastically reduced on mobile for performance */}
-      <FlyingBats
-        count={batCount}
-        maxHeight={isHomePage ? 450 : 280}
-        isHomePage={isHomePage}
-      />
+      <FlyingBats count={batCount} isHomePage={isHomePage} />
 
       {/* Interactive pumpkins - show only mobile pumpkins on mobile devices */}
       <div className={styles.pumpkinsLayer}>

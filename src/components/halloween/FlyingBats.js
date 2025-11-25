@@ -14,18 +14,19 @@ function FlyingBats({ count = 5, isHomePage = false }) {
 
   useEffect(() => {
     // Generate random bat configurations with varied paths
-    // Distribute bats across the full visible height
+    // Distribute bats across the entire page height (hero to footer)
+    const maxPageHeight = isHomePage ? 450 : 280; // vh units
     const generatedBats = Array.from({ length: count }, (_, index) => ({
       id: `bat-${index}-${Math.random()}`,
       startX: Math.random() * -10 - 5, // Start from -15vw to -5vw (offscreen left)
-      startY: Math.random() * 80 + 10, // Distribute from 10vh to 90vh (full viewport)
+      startY: Math.random() * (maxPageHeight - 20) + 10, // Distribute across page height (10vh to maxPageHeight-10vh)
       duration: isMobile ? Math.random() * 8 + 6 : Math.random() * 10 + 8, // Faster on mobile
-      delay: Math.random() * 6,
+      delay: Math.random() * 8, // Increased delay range for better distribution
       size: Math.random() * 0.4 + 0.5, // 0.5-0.9x size
       pathType: Math.floor(Math.random() * 4), // 0-3 for different paths
     }));
     setBats(generatedBats);
-  }, [count, isMobile]);
+  }, [count, isMobile, isHomePage]);
 
   // GSAP animations for each bat
   useEffect(() => {
