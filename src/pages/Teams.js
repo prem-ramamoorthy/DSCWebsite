@@ -58,6 +58,19 @@ function Teams() {
               );
             })}
           </div>
+          <h2 className={Styles.postHead}>Technical Team</h2>
+          <div className="flex-wrap flex justify-center gap-10 mt-8 mb-16 ">
+            {TeamData.technicalTeam.map((item, index) => {
+              return (
+                <TeamCard
+                  key={`${String(index)}-team`}
+                  image={getCloudinaryImage(item.image)}
+                  name={item.name}
+                  role={item.role}
+                />
+              );
+            })}
+          </div>
           <h2 className={Styles.postHead}>HR Team</h2>
           <div className="flex-wrap flex justify-center gap-10 mt-8 mb-16 ">
             {TeamData.hrTeam.map((item, index) => {

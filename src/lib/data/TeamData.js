@@ -86,6 +86,16 @@ export const PanelMembers = [
   },
 ];
 
+export const technicalTeam = [
+  {
+    id: 12,
+    name: 'Technical Team Member',
+    teamName: 'Technical',
+    role: 'Co-Lead',
+    image: 'Team/WhatsApp Image 2025-11-24 at 10.42.20 PM.jpeg',
+  },
+];
+
 export const eventManagementTeam = [
   {
     id: 5,
@@ -115,4 +125,5 @@ export const TeamData = {
   eventManagementTeam,
   facultyCoordinator,
   PanelMembers,
+  technicalTeam,
 };
