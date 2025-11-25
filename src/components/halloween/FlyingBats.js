@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import styles from './FlyingBats.module.css';
 
-function FlyingBats({ count = 5, maxHeight = 280, isHomePage = false }) {
+function FlyingBats({ count = 5, isHomePage = false }) {
   const [bats, setBats] = useState([]);
   const batsRef = useRef([]);
   const [isMobile, setIsMobile] = useState(false);
@@ -14,18 +14,18 @@ function FlyingBats({ count = 5, maxHeight = 280, isHomePage = false }) {
 
   useEffect(() => {
     // Generate random bat configurations with varied paths
-    // Distribute bats across limited page height to not go below footer
+    // Distribute bats across the full visible height
     const generatedBats = Array.from({ length: count }, (_, index) => ({
       id: `bat-${index}-${Math.random()}`,
-      startX: Math.random() * 100,
-      startY: Math.random() * (maxHeight - 10) + 10, // Distribute based on maxHeight
+      startX: Math.random() * -10 - 5, // Start from -15vw to -5vw (offscreen left)
+      startY: Math.random() * 80 + 10, // Distribute from 10vh to 90vh (full viewport)
       duration: isMobile ? Math.random() * 8 + 6 : Math.random() * 10 + 8, // Faster on mobile
       delay: Math.random() * 6,
       size: Math.random() * 0.4 + 0.5, // 0.5-0.9x size
       pathType: Math.floor(Math.random() * 4), // 0-3 for different paths
     }));
     setBats(generatedBats);
-  }, [count, maxHeight, isMobile]);
+  }, [count, isMobile]);
 
   // GSAP animations for each bat
   useEffect(() => {
@@ -49,37 +49,37 @@ function FlyingBats({ count = 5, maxHeight = 280, isHomePage = false }) {
         force3D: true, // GPU acceleration
       });
 
-      // Get path coordinates based on pathType
+      // Get path coordinates based on pathType - using relative offsets from start position
       const paths = [
         // Path 1: Wave pattern
         [
-          { x: '20vw', y: '-10vh' },
-          { x: '40vw', y: '15vh' },
-          { x: '60vw', y: '-5vh' },
-          { x: '80vw', y: '20vh' },
-          { x: '110vw', y: '10vh' },
+          { x: '+=20vw', y: '-=15vh' },
+          { x: '+=20vw', y: '+=25vh' },
+          { x: '+=20vw', y: '-=10vh' },
+          { x: '+=20vw', y: '+=15vh' },
+          { x: '+=30vw', y: '-=5vh' },
         ],
         // Path 2: Zigzag
         [
-          { x: '15vw', y: '20vh' },
-          { x: '35vw', y: '-15vh' },
-          { x: '55vw', y: '25vh' },
-          { x: '75vw', y: '-10vh' },
-          { x: '110vw', y: '5vh' },
+          { x: '+=15vw', y: '+=20vh' },
+          { x: '+=20vw', y: '-=35vh' },
+          { x: '+=20vw', y: '+=40vh' },
+          { x: '+=20vw', y: '-=25vh' },
+          { x: '+=35vw', y: '+=15vh' },
         ],
         // Path 3: Smooth curve
         [
-          { x: '25vw', y: '10vh' },
-          { x: '50vw', y: '-20vh' },
-          { x: '75vw', y: '15vh' },
-          { x: '110vw', y: '-5vh' },
+          { x: '+=25vw', y: '+=10vh' },
+          { x: '+=25vw', y: '-=30vh' },
+          { x: '+=25vw', y: '+=35vh' },
+          { x: '+=35vw', y: '-=20vh' },
         ],
         // Path 4: Steep dive
         [
-          { x: '30vw', y: '-15vh' },
-          { x: '50vw', y: '30vh' },
-          { x: '70vw', y: '0vh' },
-          { x: '110vw', y: '20vh' },
+          { x: '+=30vw', y: '-=20vh' },
+          { x: '+=20vw', y: '+=45vh' },
+          { x: '+=20vw', y: '-=30vh' },
+          { x: '+=40vw', y: '+=20vh' },
         ],
       ];
 
