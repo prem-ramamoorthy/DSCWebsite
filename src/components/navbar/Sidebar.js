@@ -130,7 +130,7 @@ function Sidebar({ isMounted, unmount }) {
           FAQs
         </Link>
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfdUNFQFgNsVL0bTEqHksGHCm3BXGyiOyjyTycg2hfFZ9qlPg/viewform"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfVGmKX9ENVutxSPSqFe60VgJImifX5PQc3Nk3SZmK7n4vxsQ/formResponse"
           target="_blank"
           className="flex rounded-full"
           rel="noreferrer"
